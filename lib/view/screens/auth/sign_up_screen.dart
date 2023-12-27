@@ -160,17 +160,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           divider: true,
                         ),
 
-                        CustomTextField(
-                          hintText: 'confirm_password'.tr,
-                          controller: _confirmPasswordController,
-                          focusNode: _confirmPasswordFocus,
-                          nextFocus: Get.find<SplashController>().configModel.refEarningStatus == 1 ? _referCodeFocus : null,
-                          inputAction: Get.find<SplashController>().configModel.refEarningStatus == 1 ? TextInputAction.next : TextInputAction.done,
-                          inputType: TextInputType.visiblePassword,
-                          prefixIcon: Images.lock,
-                          isPassword: true,
-                          onSubmit: (text) => (GetPlatform.isWeb && authController.acceptTerms) ? _register(authController, _countryDialCode) : null,
-                        ),
+                        // CustomTextField(
+                        //   hintText: 'confirm_password'.tr,
+                        //   controller: _confirmPasswordController,
+                        //   focusNode: _confirmPasswordFocus,
+                        //   nextFocus: Get.find<SplashController>().configModel.refEarningStatus == 1 ? _referCodeFocus : null,
+                        //   inputAction: Get.find<SplashController>().configModel.refEarningStatus == 1 ? TextInputAction.next : TextInputAction.done,
+                        //   inputType: TextInputType.visiblePassword,
+                        //   prefixIcon: Images.lock,
+                        //   isPassword: true,
+                        //   onSubmit: (text) => (GetPlatform.isWeb && authController.acceptTerms) ? _register(authController, _countryDialCode) : null,
+                        // ),
 
                         (Get.find<SplashController>().configModel.refEarningStatus == 1 ) ? CustomTextField(
                           hintText: 'refer_code'.tr,
@@ -253,9 +253,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
       showCustomSnackBar('enter_password'.tr);
     }else if (_password.length < 6) {
       showCustomSnackBar('password_should_be'.tr);
-    }else if (_password != _confirmPassword) {
-      showCustomSnackBar('confirm_password_does_not_matched'.tr);
-    }else {
+    }
+    // else if (_password != _confirmPassword) {
+    //   showCustomSnackBar('confirm_password_does_not_matched'.tr);
+    // }
+    else {
       SignUpBody signUpBody = SignUpBody(
         fName: _firstName, lName: _lastName, email: _email, phone: _numberWithCountryCode,
         password: _password, refCode: _referCode,
