@@ -1,4 +1,4 @@
-# sixam_mart
+# JAYMA GADE GUI
 
 A new Flutter application.
 
